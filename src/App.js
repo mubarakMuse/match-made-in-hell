@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
+import SelectionPage from './components/SelectionPage';
+import HatedGifsView from './components/HatedGifsView';
 
 function App() {
+
+//   const [hatedGifs, setHatedGifs] = useState([]);
+//   const addToHatedGifs = (hatedGif) => {
+//     setHatedGifs(hatedGifs.concat([hatedGif]))
+// }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+    <Router>
+     <Switch>
+       <Route exact default path= "/" component={SelectionPage}/>
+       <Route exact default path= "/hated-gifs" component={HatedGifsView}/>
+
+       {/* <Route exact default path= "/hate-gifs"  render={(props) => <HatedGifsView {...props} hatedGifs={hatedGifs} />}/> */}
+     </Switch>
+   </Router>
+</React.Fragment>
   );
 }
 
